@@ -22,10 +22,17 @@ class KittensController < ApplicationController
   end
 
   def edit
-    @kittens = Kitten.new
+    @kittens = Kitten.find(params[:id])
   end
 
   def update
+    @kittens = Kitten.find(params[:id])
+
+    if @kittens.update(kitten_params)
+      redirect_to edit_kitten_path(@kittens)
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
