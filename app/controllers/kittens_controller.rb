@@ -12,6 +12,13 @@ class KittensController < ApplicationController
   end
 
   def create
+    @kitten = Kitten.new(kitten_params)
+    
+    if @kitten.save
+      redirect_to root_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -22,5 +29,10 @@ class KittensController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+  def kitten_params
+    params.expect(kitten: [:name, :age, :cuteness, :softness])
   end
 end
