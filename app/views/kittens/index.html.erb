@@ -1,1 +1,10 @@
-<%= render "form", kitten: @kittens %>
+<h1>Kittens 😺</h1>
+
+# Needs to be refactored for efficiency
+<% @kittens.each do |kitten| %>
+<div>
+    <h3><%= kitten.name %></h3>
+    <p>Age: <%= kitten.age %></p>
+</div>
+<hr>
+<% end %>
