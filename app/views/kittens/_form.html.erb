@@ -1,15 +1,15 @@
 <%= form_with model: kitten do |form| %>
   <%= form.label :name %></br>
-  <%= form.text_field :name %>
+  <%= form.text_field :name, required: true %>
   </br></br>
   <%= form.label :age %></br>
-  <%= form.number_field :age %>
+  <%= form.number_field :age, required: true %>
   </br></br>
   <%= form.label :cuteness %></br>
-  <%= form.number_field :breed %>
+  <%= form.number_field :breed, required: true %>
   </br></br>
   <%= form.label :softness %></br>
-  <%= form.number_field :breed %>
+  <%= form.number_field :breed, required: true %>
   </br></br>
   <%= form.submit %>
 <% end %>
