@@ -1,12 +1,13 @@
 <h1>Kittens 😺</h1>
 
-<%= link_to 'New Kitten', new_kitten_path, class: 'btn btn-primary' %>
+<%= link_to 'New Kitten', new_kitten_path %>
 <br><br>
 
 # Needs to be refactored for efficiency
-<% @kittens.each do |kitten| %>
+<% @kitten.each do |kitten| %>
 <div>
     <h3><%= kitten.name %></h3>
+    <%= button_to 'Delete', kitten_path(kitten), method: :delete %>
     <p>Age: <%= kitten.age %></p>
     <p>Cuteness: <%= kitten.cuteness %></p>
     <p>Softness: <%= kitten.softness %></p>
