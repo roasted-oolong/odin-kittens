@@ -15,8 +15,10 @@ class KittensController < ApplicationController
     @kittens = Kitten.new(kitten_params)
     
     if @kittens.save
+      flash[:sucess] = "Success! Welcome, #{@kittens.name} 😺"
       redirect_to root_path
     else
+      flash.now[:error] = "We couldn't create your kitten 🥲 - Please fix your form"
       render :new, status: :unprocessable_entity
     end
   end
@@ -29,8 +31,10 @@ class KittensController < ApplicationController
     @kittens = Kitten.find(params[:id])
 
     if @kittens.update(kitten_params)
-      redirect_to root_path, notice: "Kitten updated successfully 😺"
+      flash[:success] = "Kitten updated successfully 😺"
+      redirect_to root_path
     else
+      flash.now[:error] = "Kitten update failed 🥲 - Please fix your form"
       render :edit, status: :unprocessable_entity
     end
   end
