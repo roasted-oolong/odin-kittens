@@ -29,7 +29,7 @@ class KittensController < ApplicationController
     @kittens = Kitten.find(params[:id])
 
     if @kittens.update(kitten_params)
-      redirect_to edit_kitten_path(@kittens)
+      redirect_to root_path, notice: "Kitten updated successfully 😺"
     else
       render :edit, status: :unprocessable_entity
     end
