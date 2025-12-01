@@ -3,7 +3,7 @@
 <%= link_to 'New Kitten', new_kitten_path %>
 <br><br>
 
-<% @kitten.each do |kitten| %>
+<% @kittens.each do |kitten| %>
 <div>
     <h3><%= kitten.name %></h3>
     <%= render "delete", kitten: kitten %>

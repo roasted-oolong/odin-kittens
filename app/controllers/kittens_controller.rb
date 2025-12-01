@@ -1,20 +1,20 @@
 class KittensController < ApplicationController
   def index
-    @kitten = Kitten.all
+    @kittens = Kitten.all
   end
 
   def show
-    @kitten = Kitten.find(params[:id])
+    @kittens = Kitten.find(params[:id])
   end
 
   def new
-    @kitten = Kitten.new
+    @kittens = Kitten.new
   end
 
   def create
-    @kitten = Kitten.new(kitten_params)
+    @kittens = Kitten.new(kitten_params)
     
-    if @kitten.save
+    if @kittens.save
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity
@@ -22,24 +22,24 @@ class KittensController < ApplicationController
   end
 
   def edit
-    @kitten = Kitten.find(params[:id])
+    @kittens = Kitten.find(params[:id])
   end
 
   def update
-    @kitten = Kitten.find(params[:id])
+    @kittens = Kitten.find(params[:id])
 
-    if @kitten.update(kitten_params)
-      redirect_to edit_kitten_path(@kitten)
+    if @kittens.update(kitten_params)
+      redirect_to edit_kitten_path(@kittens)
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @kitten = Kitten.find(params[:id])
-    @kitten.destroy
+    @kittens = Kitten.find(params[:id])
+    @kittens.destroy
     
-    redirect_to root_path
+    redirect_to root_path, notice: "Kitten says goodbye 🥹"
   end
 
   private
