@@ -1,10 +1,15 @@
 <h1>Kittens 😺</h1>
 
+<%= link_to 'New Kitten', new_kitten_path, class: 'btn btn-primary' %>
+<br><br>
+
 # Needs to be refactored for efficiency
 <% @kittens.each do |kitten| %>
 <div>
     <h3><%= kitten.name %></h3>
     <p>Age: <%= kitten.age %></p>
+    <p>Cuteness: <%= kitten.cuteness %></p>
+    <p>Softness: <%= kitten.softness %></p>
 </div>
 <hr>
 <% end %>
