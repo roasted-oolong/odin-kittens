@@ -6,7 +6,7 @@
 <% @kitten.each do |kitten| %>
 <div>
     <h3><%= kitten.name %></h3>
-    <%= button_to 'Delete', kitten_path(kitten), method: :delete %>
+    <%= render "delete", kitten: kitten %>
     <p>Age: <%= kitten.age %></p>
     <p>Cuteness: <%= kitten.cuteness %></p>
     <p>Softness: <%= kitten.softness %></p>
