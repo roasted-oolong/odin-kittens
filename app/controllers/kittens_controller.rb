@@ -10,6 +10,11 @@ class KittensController < ApplicationController
 
   def show
     @kittens = Kitten.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @kittens}
+    end
   end
 
   def new
